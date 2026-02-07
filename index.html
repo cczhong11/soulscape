@@ -8,10 +8,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Soulscape AI Film Sprint 2026 | The Largest AI Film Sprint in US
+    Soulscape 2026 | Global AI Cinema Lab + Summit
   </title>
   <meta name="description"
-    content="200+ Storytellers Around the World. 60 hours of creativity. Join the movement where filmmaking becomes a thought-engineering project for everyone." />
+    content="Global AI Cinema Lab + Summit. 3.5-day dual-track experience uniting creators, studios, and visionaries." />
   <link rel="icon" href="https://d33e382l66m7o1.cloudfront.net/soulscape/image/soulscapeicon.jpg" type="image/jpeg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
   <style>
@@ -419,11 +419,41 @@
       max-width: 100%;
     }
 
+    .hero-slogan {
+      font-family: "Monument Extended", sans-serif;
+      font-size: clamp(18px, 2.6vw, 28px);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #f48529;
+      margin: 0;
+      text-align: center;
+    }
+
+    .hero-slogan-subtext {
+      font-family: "TT Norms", sans-serif;
+      font-size: clamp(13px, 1.6vw, 18px);
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 760px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
       .hero-subtitle {
         font-size: clamp(14px, 3.5vw, 18px);
         white-space: normal;
         line-height: 1.6;
+        max-width: 90%;
+      }
+
+      .hero-slogan {
+        font-size: clamp(16px, 4vw, 22px);
+        letter-spacing: 1.2px;
+      }
+
+      .hero-slogan-subtext {
+        font-size: clamp(12px, 3.2vw, 16px);
         max-width: 90%;
       }
     }
@@ -561,12 +591,81 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: var(--spacing-lg);
     }
 
     .navbar-logo {
       font-size: 20px;
       font-weight: 700;
       color: white;
+    }
+
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-family: "TT Norms", sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .navbar-menu a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-menu a:hover {
+      color: #f48529;
+    }
+
+    .navbar-dropdown {
+      position: relative;
+    }
+
+    .navbar-dropdown-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .navbar-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      background: rgba(10, 10, 10, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px 0;
+      min-width: 200px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      z-index: 10;
+    }
+
+    .navbar-dropdown:hover .navbar-dropdown-menu,
+    .navbar-dropdown:focus-within .navbar-dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .navbar-dropdown-menu a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+    }
+
+    .navbar-dropdown-menu a:hover {
+      color: #f48529;
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .navbar-register-btn {
@@ -630,6 +729,10 @@
         padding: 8px 20px;
         font-size: 11px;
         letter-spacing: 0.5px;
+      }
+
+      .navbar-menu {
+        display: none;
       }
     }
 
@@ -768,75 +871,41 @@
     .stats-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--spacing-lg);
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      gap: var(--spacing-md);
       position: relative;
       z-index: 1;
     }
 
     @media (max-width: 768px) {
       .stats-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
         gap: var(--spacing-lg);
       }
     }
 
-    .stat-item {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: var(--spacing-sm);
-      padding: var(--spacing-md) var(--spacing-lg);
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    @media (max-width: 768px) {
-      .stat-item {
-        padding: var(--spacing-md);
-        gap: var(--spacing-sm);
-      }
-    }
-
-    .stat-item:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(0, 217, 255, 0.3);
-      transform: translateY(-5px);
-    }
-
-    .stat-number {
+    .stats-row {
       font-family: "Monument Extended", sans-serif;
-      font-size: clamp(36px, 4.5vw, 56px);
-      font-weight: 300;
-      line-height: 1;
-      color: #f48529;
-    }
-
-    @media (max-width: 768px) {
-      .stat-number {
-        font-size: clamp(36px, 10vw, 64px);
-        font-weight: 300;
-      }
-    }
-
-    .stat-label {
-      font-family: "TT Norms", sans-serif;
-      font-size: clamp(13px, 1.3vw, 16px);
-      font-weight: 500;
+      font-size: clamp(14px, 1.6vw, 18px);
       color: var(--text-secondary);
+      letter-spacing: 1px;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
+      line-height: 1.8;
     }
 
     @media (max-width: 768px) {
-      .stat-label {
-        font-size: clamp(12px, 3vw, 16px);
-        letter-spacing: 0.5px;
+      .stats-row {
+        font-size: clamp(12px, 3.2vw, 16px);
+        letter-spacing: 0.8px;
       }
+    }
+
+    .stats-row-divider {
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0 8px;
     }
 
     .stat-item-featured {
@@ -1444,6 +1513,112 @@
       line-height: 1.6;
     }
 
+    /* ===== Tracks Section ===== */
+    .tracks-section {
+      background: var(--bg-primary);
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--spacing-xl);
+      margin-top: var(--spacing-2xl);
+    }
+
+    .track-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-2xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .track-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 217, 255, 0.4);
+    }
+
+    .track-title {
+      font-family: "Monument Extended", sans-serif;
+      font-size: clamp(18px, 2vw, 24px);
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .track-subtitle {
+      font-family: "TT Norms", sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-tertiary);
+    }
+
+    .track-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      color: var(--text-secondary);
+      font-family: "TT Norms", sans-serif;
+      font-size: 15px;
+    }
+
+    .track-cta {
+      align-self: flex-start;
+      padding: 10px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #f48529;
+      color: white;
+      font-family: "TT Norms", sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .track-cta.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .tracks-footer-link {
+      margin-top: var(--spacing-lg);
+      text-align: center;
+      font-family: "TT Norms", sans-serif;
+      font-size: 14px;
+      color: var(--text-tertiary);
+    }
+
+    .tracks-footer-link a {
+      color: #f48529;
+      text-decoration: none;
+    }
+
+    .tracks-footer-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .tracks-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Photo Wall ===== */
+    .photo-wall-label {
+      font-family: "TT Norms", sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
     /* ===== Schedule Section ===== */
     .schedule-timeline {
       max-width: 900px;
@@ -1644,6 +1819,13 @@
       margin-top: var(--spacing-xl);
     }
 
+    .footer-legal {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.4);
+      margin-top: var(--spacing-sm);
+      line-height: 1.6;
+    }
+
     /* ===== Scroll Animations ===== */
     .scroll-animate {
       opacity: 0;
@@ -1826,7 +2008,7 @@
   <div class="intro-splash" id="introSplash">
     <div class="intro-background"></div>
     <div class="intro-text">
-      The World's First Global AI Film Sprint for Every Storyteller
+      The World's First Global AI Cinema Lab + Summit
     </div>
   </div>
 
@@ -1834,6 +2016,19 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-content">
       <div class="navbar-logo">Soulscape</div>
+      <div class="navbar-menu">
+        <a href="#manifesto">Manifesto</a>
+        <a href="#tracks">Lab & Summit</a>
+        <a href="#council">Council</a>
+        <div class="navbar-dropdown">
+          <span class="navbar-dropdown-toggle">Partners <i class="fa-solid fa-chevron-down"></i></span>
+          <div class="navbar-dropdown-menu">
+            <a href="sponsor.html">Sponsors</a>
+            <a href="join-us.html">Community Alliance</a>
+            <a href="speaker-application.html">Media</a>
+          </div>
+        </div>
+      </div>
       <div class="social-icons">
         <a href="https://www.instagram.com/soulscapefilm/" target="_blank" title="Instagram"><i
             class="fa-brands fa-instagram"></i></a>
@@ -1858,7 +2053,11 @@
     <div class="hero-content">
       <h1 class="hero-main-title">SOULSCAPE 2026</h1>
       <p class="hero-subtitle">
-        Your Life is the Script. Your Heart is the Director.
+        Global AI Cinema Lab + Summit
+      </p>
+      <p class="hero-slogan">Soul Over Slop.</p>
+      <p class="hero-slogan-subtext">
+        Reclaiming the heart of storytelling. Bridging Silicon Valley Tech &amp; Hollywood Cinema.
       </p>
       <div class="hero-buttons">
         <a href=" " class="luma-checkout--button hero-register-btn" data-luma-action="checkout"
@@ -1867,7 +2066,7 @@
     </div>
 
     <div class="scroll-indicator">
-      <span class="scroll-text">Global AI Film Sprint</span>
+      <span class="scroll-text">Global AI Cinema Lab + Summit</span>
       <div class="scroll-arrow">
         <svg fill="currentColor" viewBox="0 0 24 24">
           <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
@@ -1912,26 +2111,11 @@
       <span class="section-label">Preview</span>
     </div>
     <div class="stats-container">
-      <div class="stat-item stat-item-featured">
-        <div class="stat-main">
-          <span class="stat-number">200+</span>
-          <span class="stat-label">Participants</span>
-        </div>
-        <span class="stat-subtitle">World Largest AI Film Sprint</span>
-      </div>
-      <div class="stat-item stat-item-featured">
-        <div class="stat-main">
-          <span class="stat-number">60</span>
-          <span class="stat-label">Hours</span>
-        </div>
-        <span class="stat-subtitle">Turn the World of Imaginations into Reality</span>
-      </div>
-      <div class="stat-item stat-item-featured">
-        <div class="stat-main">
-          <span class="stat-number">$150k</span>
-          <span class="stat-label">Total Prize</span>
-        </div>
-        <span class="stat-subtitle">Every Story Deserves to Be Seen</span>
+      <div class="stats-row">
+        950+ Attendees <span class="stats-row-divider">•</span>
+        15+ Top AI Studios <span class="stats-row-divider">•</span>
+        25+ Global Partners <span class="stats-row-divider">•</span>
+        $100k+ Total Prize Pool
       </div>
     </div>
   </section>
@@ -2007,7 +2191,7 @@
   </section>
 
   <!-- Manifesto Section -->
-  <section class="content-section scroll-animate">
+  <section class="content-section scroll-animate" id="manifesto">
     <div class="section-header">
       <span class="section-label">To The Storytellers</span>
       <h2 class="section-title">Here's to the Storytellers</h2>
@@ -2063,55 +2247,17 @@
   <!-- What We Provide Section -->
   <section class="content-section barriers-section scroll-animate">
     <div class="section-header">
-      <span class="section-label">What We Provide</span>
-      <h2 class="section-title">We Remove the Barriers. You Bring the Vision.</h2>
+      <span class="section-label">Our Belief</span>
+      <h2 class="section-title">Backed by Industry Heavyweights</h2>
       <p class="section-description">
-        We want your focus to be on one thing: your story. To empower you to bring your universe of imagination to life,
-        we are removing the practical barriers.
+        We are building the "Digital Bauhaus" for the AI era. Soulscape is not just an event; it's a movement bridging
+        the gap between technology and emotion. Our Council &amp; Mentors include veterans from: Sony Pictures, Warner
+        Bros, Lionsgate, Pixar, Disney, Netflix, and Google.<br /><br />
+        Supported by the World's Top AI Studios: Phantom X, Gossip Goblins, Promptr and more.<br /><br />
+        Strategic Alliance: Officially connecting the EU &amp; US markets with partners including Bionic Awards
+        (London), AIMA (Spain), and AI Film 3 (Vegas).
       </p>
     </div>
-
-    <div class="barriers-divider" aria-hidden="true"></div>
-
-    <div class="barriers-grid">
-      <div class="barrier-card">
-        <div class="barrier-title">
-          <span class="barrier-icon">&nearr;</span>
-          <span>Global Travel Covered</span>
-          <span class="barrier-emoji" aria-hidden="true">🚆</span>
-        </div>
-        <p class="barrier-copy">
-          We will offer reimbursements to underprivileged participants traveling from distant locations so you can
-          arrive ready to create.
-        </p>
-      </div>
-
-      <div class="barrier-card">
-        <div class="barrier-title">
-          <span class="barrier-icon">&nearr;</span>
-          <span>Accommodations Covered</span>
-          <span class="barrier-emoji" aria-hidden="true">🏨</span>
-        </div>
-        <p class="barrier-copy">
-          For underprivileged storytellers, students, and youth storytellers, we will provide hotel accommodations—or
-          tents and sleeping bags—so you can stay overnight at the venue.
-        </p>
-      </div>
-
-      <div class="barrier-card">
-        <div class="barrier-title">
-          <span class="barrier-icon">&nearr;</span>
-          <span>Meals Provided</span>
-          <span class="barrier-emoji" aria-hidden="true">🍔</span>
-        </div>
-        <p class="barrier-copy">
-          For all storytellers, we will provide three meals per day plus unlimited snacks during the event to keep your
-          energy up.
-        </p>
-      </div>
-    </div>
-
-
   </section>
 
   <!-- Partners Section -->
@@ -2248,6 +2394,7 @@
   <!-- Founding Council Section -->
   <section class="content-section mentor-section scroll-animate" id="council">
     <div class="section-header">
+      <span class="section-label">Photo Wall</span>
       <h2 class="section-title">INVITED MENTORS & JURORS</h2>
     </div>
 
@@ -2397,6 +2544,53 @@
           </div>
         </div>
       </div>
+
+      <div class="mentor-group">
+        <div class="mentor-group-title">Speakers &amp; Panel</div>
+        <div class="mentor-more">Announcing soon.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks Section -->
+  <section class="content-section tracks-section scroll-animate" id="tracks">
+    <div class="section-header">
+      <span class="section-label">Lab &amp; Summit</span>
+      <h2 class="section-title">The Dual-Track Experience</h2>
+      <p class="section-description">
+        Two paths. One mission: the future of AI cinema.
+      </p>
+    </div>
+
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-title">Track 01: The Cinema Lab</div>
+        <div class="track-subtitle">For 200 Selected Creators</div>
+        <ul class="track-list">
+          <li>48-Hour Immersive Cinema Lab.</li>
+          <li>Direct Mentorship from Hollywood Producers.</li>
+          <li>Travel &amp; Accommodation Grants (Underprivileged).</li>
+          <li>Compete for Awards &amp; Studio Contracts.</li>
+        </ul>
+        <a class="track-cta" href="submission.html">Apply for Lab</a>
+      </div>
+
+      <div class="track-card">
+        <div class="track-title">Track 02: The Summit</div>
+        <div class="track-subtitle">For the Visionaries</div>
+        <ul class="track-list">
+          <li>Keynotes &amp; Panels (Tech x Cinema).</li>
+          <li>AI Production Career Fair.</li>
+          <li>Studio Booths &amp; Masterclasses.</li>
+          <li>Grand Premiere &amp; Networking Mixers.</li>
+        </ul>
+        <a class="track-cta secondary" href="https://luma.com/soulscape?k=cd" target="_blank"
+          rel="noopener noreferrer">Get Tickets</a>
+      </div>
+    </div>
+
+    <div class="tracks-footer-link">
+      Looking to be a Sponsor or Partner? <a href="sponsor.html">Click Here</a>
     </div>
   </section>
 
@@ -2465,150 +2659,66 @@
   </section>
 
   <!-- Schedule Section -->
-  <section class="content-section scroll-animate" style="display: none;">
+  <section class="content-section scroll-animate" id="agenda">
     <div class="section-header">
-      <span class="section-label">5-Day Journey</span>
-      <h2 class="section-title">Film Sprint Agenda</h2>
+      <span class="section-label">3.5-Day Flow</span>
+      <h2 class="section-title">The Agenda</h2>
       <p class="section-description">
-        A carefully designed journey from belief to finished film
+        A reverse-engineered sprint from ignition to red carpet.
       </p>
     </div>
 
     <div class="schedule-timeline">
-      <!-- Day 1 -->
       <div class="schedule-day">
-        <h3 class="day-title">Day 1</h3>
-        <p class="day-subtitle">
-          The Foundation of Thought and the Fusion of Tools
-        </p>
-
+        <h3 class="day-title">Day 0: Thursday (PM)</h3>
+        <p class="day-subtitle">The Ignition</p>
         <div class="schedule-items">
           <div class="schedule-item">
-            <div class="item-time">10:00 AM - 1:00 PM</div>
-            <div class="item-title">Arrival & "The Belief Archive"</div>
+            <div class="item-title">Check-in &amp; Team Formation</div>
             <div class="item-description">
-              Record the stories and beliefs you want to express through film.
-              AI will instantly generate a "thought filmstrip" that serves as
-              your entry pass.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">1:00 PM - 4:00 PM</div>
-            <div class="item-title">"Belief Resonance" & Team Formation</div>
-            <div class="item-description">
-              Form teams based on shared values and story themes through an
-              informal mixer.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">4:00 PM - 6:00 PM</div>
-            <div class="item-title">"The Belief Toolkit" Workshop</div>
-            <div class="item-description">
-              AI Visual Poetry: Transforming emotions into visuals with
-              prompts. Master the core functions of AI video tools.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">7:00 PM - 10:00 PM</div>
-            <div class="item-title">Theme Reveal & Script "Engineering"</div>
-            <div class="item-description">
-              A "Forum of Belief" where filmmaking masters and AI thought
-              leaders announce the event's theme. Begin prototyping your
-              stories.
+              Welcome Mixer • Keynote: "The Soul Manifesto" • 21:00: Sprint Begins.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Days 2-4 -->
       <div class="schedule-day">
-        <h3 class="day-title">Days 2-4</h3>
-        <p class="day-subtitle">
-          The Belief Engineering Sprint (72 Hours of Uninterrupted Creation)
-        </p>
-        <p class="day-subtitle" style="font-style: italic; font-size: 16px; margin-top: 8px">
-          "This isn't a silent exam. This is a collaborative journey."
-        </p>
-
+        <h3 class="day-title">Day 1: Friday</h3>
+        <p class="day-subtitle">The Deep Dive</p>
         <div class="schedule-items">
           <div class="schedule-item">
-            <div class="item-time">All Day</div>
-            <div class="item-title">Creative Marathon</div>
+            <div class="item-title">Cinema Lab + Summit</div>
             <div class="item-description">
-              The venue transforms into a "Thought Lab," open 24/7 for teams
-              to create. Optional parallel workshops available throughout.
-              Work alongside fellow storytellers, share ideas, and build
-              together in a supportive environment.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">Day 2 AM</div>
-            <div class="item-title">Narrative Mapping Workshop</div>
-            <div class="item-description">
-              How to use AI to structure your story from a human perspective.
-              Learn to craft compelling narratives that resonate with
-              audiences while leveraging AI tools for efficient story
-              development.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">Day 2 PM</div>
-            <div class="item-title">Emotional Palette Workshop</div>
-            <div class="item-description">
-              How to create mood and atmosphere with AI. Master the art of
-              visual storytelling by using AI to generate imagery that
-              captures the emotional core of your narrative.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">Day 3</div>
-            <div class="item-title">Sound and Soul Workshop</div>
-            <div class="item-description">
-              How to use AI to assist with scoring and sound design. Discover
-              how audio can elevate your film's emotional impact and learn to
-              work with AI music generation and sound design tools.
-            </div>
-          </div>
-
-          <div class="schedule-item">
-            <div class="item-time">Day 4</div>
-            <div class="item-title">Prototype Presentation Workshop</div>
-            <div class="item-description">
-              Refine your core message and prepare for the final showcase.
-              Learn storytelling techniques for presenting your work
-              effectively and receive feedback from mentors and peers.
+              Cinema Lab: Closed-door production &amp; mentorship. Summit: Visionary talks &amp; tech demos.
+              Evening: "Fail Night" Mixer.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Day 5 -->
       <div class="schedule-day">
-        <h3 class="day-title">Day 5</h3>
-        <p class="day-subtitle">The Cultural Launch</p>
-
+        <h3 class="day-title">Day 2: Saturday</h3>
+        <p class="day-subtitle">The Friction</p>
         <div class="schedule-items">
           <div class="schedule-item">
-            <div class="item-time">10:00 AM - 12:00 PM</div>
-            <div class="item-title">Submission & Judging</div>
+            <div class="item-title">Production Sprint</div>
             <div class="item-description">
-              Teams submit their finished films and a "Creator's Statement."
+              Cinema Lab: Editing &amp; sound design sprint. Summit: Masterclasses &amp; AI career fair.
+              23:59: Submission Deadline.
             </div>
           </div>
+        </div>
+      </div>
 
+      <div class="schedule-day">
+        <h3 class="day-title">Day 3: Sunday</h3>
+        <p class="day-subtitle">The Revelation</p>
+        <div class="schedule-items">
           <div class="schedule-item">
-            <div class="item-time">3:00 PM - 6:00 PM</div>
-            <div class="item-title">Grand Screening & Awards Ceremony</div>
+            <div class="item-title">Grand Premiere</div>
             <div class="item-description">
-              All films will be screened in a professional theater. The
-              "Cultural Prototype Awards" will be presented, honoring works
-              that have successfully "engineered" powerful beliefs into film.
+              Morning: "Greenlight Sessions" (Studio Pitches). Afternoon: The Grand Premiere &amp; Red Carpet.
+              Evening: Awards Ceremony &amp; Afterparty.
             </div>
           </div>
         </div>
@@ -2705,7 +2815,11 @@
       <p class="footer-text">A movement by storytellers, for storytellers.</p>
       <div class="footer-links"></div>
       <div class="copyright">
-        © 2026 Soulscape AI Film Sprint. All rights reserved.
+        © 2026 Soulscape. All rights reserved.
+      </div>
+      <div class="footer-legal">
+        Soulscape 2026 is a fiscally sponsored project of Bay Area Innovest, a 501(c)(3) non-profit organization. All
+        donations are tax-deductible.
       </div>
     </div>
   </footer>
